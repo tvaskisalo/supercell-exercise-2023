@@ -1,0 +1,4 @@
+debug/
+target/
+Cargo.lock
+updater_output.txt
