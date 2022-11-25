@@ -1,4 +1,4 @@
-## Exercise for supercell internship for summer 2022
+## Exercise for supercell internship for summer 2023
 
 
 ### How to run the solutions
