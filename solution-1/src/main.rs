@@ -117,6 +117,7 @@ fn update (update_req: UpdateRequest, friends: Vec<(String, String)>, user_value
     let broadcast: Broadcast = Broadcast { broadcast: users_friends, user: update_req.user, timestamp: update_req.timestamp, values: updated_values };
     return serde_json::to_string(&broadcast).unwrap();
 }
+
 fn del_friends (del_friends_req: DelFriendsRequest, friends: &mut Vec<(String, String)>) {
     //Keep all friends except if the friends are given user1 and user2
     friends.retain(

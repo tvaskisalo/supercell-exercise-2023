@@ -7,7 +7,9 @@ Pre-requisites: To run the solutions, you should have cargo and rust installed.
 
 Solution to the exercise 1 is in the directory solution-1 and solution to the exercise 2 is in the directory solution-2.
 
-You can run the test by going to the corresponding directories and running 
+You can run the test by going to the corresponding directories and running.
+Please note that input1.txt needs to exist in the directory for the solution-2 tests.
+
 ```
 cargo test
 ```
