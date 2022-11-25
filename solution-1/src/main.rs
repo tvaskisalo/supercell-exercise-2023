@@ -18,7 +18,7 @@ struct ValueAndTimestamp {
 }
 
 //Structures to handle JSON better
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 struct MakeFriendsRequest {
     user1: String,
     user2: String
@@ -167,11 +167,74 @@ fn main () {
             }
             //Fetch user's values
             let user_values = &mut value_states[user_value_index.unwrap()];
-            update(update_req, friends.clone(), &mut user_values.values);
+            let json = update(update_req, friends.clone(), &mut user_values.values);
+            if json.len() > 0 {
+                println!("{}", json);
+            }
         } else if line.contains("del_friends") {
             //Parse JSON to DelFriendsRequest
             let del_friends_req: DelFriendsRequest = serde_json::from_str(&line).unwrap();
             del_friends(del_friends_req, friends)
         }
+    }
+}
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn cant_make_duplicate_friends () {
+        let friend_req = MakeFriendsRequest {
+            user1: "a".to_string(),
+            user2: "b".to_string()
+        };
+        let friends: &mut Vec<(String, String)> = &mut Vec::new();
+        make_friends(friend_req.clone(), friends);
+        make_friends(friend_req.clone(), friends);
+        assert!(friends.len()==1)
+    }
+
+    #[test]
+    fn removing_friends_from_empty_list_is_okay () {
+        let friends: &mut Vec<(String, String)> = &mut Vec::new();
+        let del_req = DelFriendsRequest {
+            user1: "a".to_string(),
+            user2: "b".to_string()
+        };
+        del_friends(del_req, friends);
+        assert!(friends.len() == 0)
+    }
+
+    #[test]
+    fn update_returns_empty_string_with_no_friends () {
+        let friends: Vec<(String, String)> = Vec::new();
+        let mut values: Map<String, Value> = Map::new();
+        values.insert("foo".to_string(), Value::String("bar".to_string()));
+        let user_values: &mut Vec<ValueAndTimestamp> = &mut Vec::new();
+        let update_req = UpdateRequest {
+            user: "a".to_string(),
+            timestamp: 100,
+            values
+        };
+        let return_value = update(update_req, friends, user_values);
+        assert_eq!(return_value, "".to_string());
+    }
+
+    #[test]
+    fn update_updates_value_with_no_friends () {
+        let friends: Vec<(String, String)> = Vec::new();
+        let mut values: Map<String, Value> = Map::new();
+        values.insert("foo".to_string(), Value::String("bar".to_string()));
+        let user_values: &mut Vec<ValueAndTimestamp> = &mut Vec::new();
+        let update_req = UpdateRequest {
+            user: "a".to_string(),
+            timestamp: 100,
+            values
+        };
+        update(update_req, friends, user_values);
+        assert!(user_values.len()==1);
+        assert!(user_values[0].timestamp == 100)
     }
 }
