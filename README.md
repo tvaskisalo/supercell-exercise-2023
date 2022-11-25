@@ -30,10 +30,10 @@ To run the compiled solution-2, execute in the directory solution-2:
 ```
 ./target/release/solution-2 -i FILENAME THREAD_COUNT INFO WRITE
 ```
-Where: FILENAME is the name of the file.
-(Optional) THREAD_COUNT is the number of threads the solution will use. Default value is 4.
-(Optional) INFO is 0 or 1, 1 if you want to see the execution time and 0 if not. Default value is 0.
-(Optional) WRITE is 0 or 1, 1 if you want the solution to write the output to a file. Default value is 0. This is just used for testing.
+Where: FILENAME is the name of the file.\
+(Optional) THREAD_COUNT is the number of threads the solution will use. Default value is 4.\
+(Optional) INFO is 0 or 1, 1 if you want to see the execution time and 0 if not. Default value is 0.\
+(Optional) WRITE is 0 or 1, 1 if you want the solution to write the output to a file. Default value is 0. This is just used for testing.\
 
 
 
@@ -65,31 +65,31 @@ Sample size is 10.
 
 Input1: 1 000 000 lines and 10 users.
 
-1 Thread: min: 612ms, max: 630ms, average: 615ms
-2 Threads: min: 368ms, max: 375ms, average: 372ms
-3 Threads: min: 270ms, max: 273ms, average: 272ms
-4 Threads: min: 237ms, max: 271ms, average: 246ms
+1 Thread: min: 612ms, max: 630ms, average: 615ms\
+2 Threads: min: 368ms, max: 375ms, average: 372ms\
+3 Threads: min: 270ms, max: 273ms, average: 272ms\
+4 Threads: min: 237ms, max: 271ms, average: 246ms\
 
 Input2: 2 000 000 lines and 10 users.
 
-1 Thread: min: 1.23s, max: 1.24s, average: 1.23s 
-2 Threads: min: 742ms, max: 764ms, average: 746ms
-3 Threads: min: 537ms, max: 548ms, average: 543ms
-4 Threads: min: 474ms, max: 494ms, average: 478ms
+1 Thread: min: 1.23s, max: 1.24s, average: 1.23s \
+2 Threads: min: 742ms, max: 764ms, average: 746ms\
+3 Threads: min: 537ms, max: 548ms, average: 543ms\
+4 Threads: min: 474ms, max: 494ms, average: 478ms\
 
 Input3: 2 000 000 lines and 20 users.
 
-1 Thread: min: 1.23s, max: 1.32s, average: 1.27s 
-2 Threads: min: 638ms, max: 643ms, average: 639ms
-3 Threads: min: 521ms, max: 535ms, average: 526ms
-4 Threads: min: 433ms, max: 439ms, average: 435ms
+1 Thread: min: 1.23s, max: 1.32s, average: 1.27s \
+2 Threads: min: 638ms, max: 643ms, average: 639ms\
+3 Threads: min: 521ms, max: 535ms, average: 526ms\
+4 Threads: min: 433ms, max: 439ms, average: 435ms\
 
 Input4: 4 000 000 lines and 20 users.
 
-1 Thread: min: 2.45s, max: 2.5s, average: 2.46s
-2 Threads: min: 1.27s, max: 1.31s, average: 1.28s
-3 Threads: min: 1.05s, max: 1.18s, average: 1.07s
-4 Threads: min: 869ms, max: 897ms, average: 874ms
+1 Thread: min: 2.45s, max: 2.5s, average: 2.46s\
+2 Threads: min: 1.27s, max: 1.31s, average: 1.28s\
+3 Threads: min: 1.05s, max: 1.18s, average: 1.07s\
+4 Threads: min: 869ms, max: 897ms, average: 874ms\
 
 input2.txt, input3.txt and input4.txt are in the extra-inputs-solution-2.zip file.
 Please note that input2.txt, input3.txt, and input4.txt are large files, around 100-250Mb.
