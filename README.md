@@ -91,7 +91,8 @@ Input4: 4 000 000 lines and 20 users.
 3 Threads: min: 1.05s, max: 1.18s, average: 1.07s
 4 Threads: min: 869ms, max: 897ms, average: 874ms
 
-All the input files are in the zip-file. Please note that input2.txt, input3.txt, and input4.txt are large files, around 100-250Mb.
+input2.txt, input3.txt and input4.txt are in the extra-inputs-solution-2.zip file.
+Please note that input2.txt, input3.txt, and input4.txt are large files, around 100-250Mb.
 
 #### Exercise 2 benchmark analysis
 
