@@ -3,16 +3,19 @@
 
 ### How to run the solutions
 
-Pre-requisites: To run the solutions, you should have cargo and rust installed.
+The project has been tested to work on Linux. 
+
+Pre-requisites: To run the solutions, you should have cargo and Rust installed.
 
 Solution to the exercise 1 is in the directory solution-1 and solution to the exercise 2 is in the directory solution-2.
 
-You can run the test by going to the corresponding directories and running.
-Please note that input1.txt needs to exist in the directory for the solution-2 tests.
+You can run the tests by going to the corresponding directories and running:
 
 ```
 cargo test
 ```
+
+Please note that input1.txt needs to exist in the directory for the solution-2 tests.
 
 To build the solutions, execute 
 ```
@@ -41,7 +44,7 @@ Where: FILENAME is the name of the file.\
 
 #### Exercise 1
 
-Since the make_friends and del_friends are assumed to be in order without timestamp, I chose not to use threads for this exercise. Threads, by design, do not guarantee that messages would come in order. For example if thread 1 sends a make_friends message for users ab" and "bc" and thread 2 sends a del_friends message for users "ab" and "bc" at the same time. Now we cannot know which message was supposed to be sent first. So it is inconclusive wheter users "ab" and "bc" should be friends or not. Even though we can assume that they come in order, that would be a false assumption if the program, by design, does not guarantee that.
+Since the make_friends and del_friends are assumed to be in order without timestamp, I chose not to use threads for this exercise. Threads, by design, do not guarantee that messages would come in order. For example if thread 1 sends a make_friends message for users ab" and "bc" and thread 2 sends a del_friends message for users "ab" and "bc" at the same time. Now we cannot know which message was supposed to be sent first. So it is inconclusive wheter users "ab" and "bc" should be friends or not. Even though we can assume that they come in order that would be a false assumption if the program, by design, does not guarantee that.
 
 
 #### Exercise 2
@@ -96,7 +99,7 @@ Please note that input2.txt, input3.txt, and input4.txt are large files, around 
 
 #### Exercise 2 benchmark analysis
 
-Due to the limited amount of threads, the speedup is difficult to analyse. But with this data we could approximate the speedup to be close to linear, since the execution time is near-linearly decreasing when the thread count is increasing. The time to execute with four threads is consistantly roughly third of the time compared to executing on one thread. This is probably better when running on a system with more than four processing cores. Another trend that can be seen, which I already hypotized is that the execution time gets better when the amount of users increase. When comparing the execution time between input2 and input3, we can see that with multiple threads, the execution time is lower in input3, even though the input size is the same. This is due to the decrease in probabilty that threads have to wait for each other. If we would have only one user the execution time with 4 threads would be the same with one thread. But the point of concurrent systems is that they scale great when the input size is large and in this situation a user will not make that many requests each second, instead a lot of users make small requests, so this approach scales well with that.
+Due to the limited amount of threads, the speedup is difficult to analyze. But with this data we could approximate the speedup to be close to linear, since the execution time is near-linearly decreasing when the thread count is increasing. The time to execute with four threads is consistantly roughly third of the time compared to executing on one thread. This is probably better when running on a system with more than four processing cores. Another trend that can be seen, which I already hypotized is, that the execution time gets better when the amount of users increase. When comparing the execution time between input2 and input3, we can see that with multiple threads, the execution time is lower in input3, even though the input size is the same. This is due to the decrease in probabilty that threads have to wait for each other. If we would have only one user the execution time with 4 threads would be the same with one thread. But the point of concurrent systems is that they scale great when the input size is large and in this situation a user will not make that many requests each second, instead many of users make small requests, so this approach scales well with that.
 
 
 
